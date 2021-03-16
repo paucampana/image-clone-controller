@@ -20,6 +20,12 @@ For testing, If you want to run just the go files (without running as a deployme
 2. Run go files: `go run /src/.`
 
 
-# Considerations
+## Demo
+
+In this demo we can see how it works:
+
+[![asciicast](https://asciinema.org/a/399726.svg)](https://asciinema.org/a/399726)
+
+## Considerations
 
 I have used Docker Hub as the back up registry. It should also work for other registries, but I did not test it.
