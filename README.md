@@ -10,7 +10,7 @@ This Kubernetes controller watches Deployments and Daemonsets. For each of them,
     - /k8sFiles/secret.yaml: Set login password or token
 3. Create a namespace for our controller: `kubectl create namespace operators` 
 4. Create all files in k8sFiles directory. `kubectl create -f /k8sFiles`
-5. Everything is ready! You can see logs in the pod created in namespace operators.
+5. Everything is ready! You can see the logs in the pod created in namespace operators.
 
 For testing, If you want to run just the go files (without running as a deployment in the cluster):
 
