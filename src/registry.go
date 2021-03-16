@@ -9,10 +9,6 @@ import (
 	"github.com/google/go-containerregistry/pkg/name"
 )
 
-//todo delete
-
-//TODO password not visible
-
 //Registry stores auth data and backupRegistry
 type Registry struct {
 	backupRegistry string
