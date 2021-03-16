@@ -1,0 +1,39 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: backup-images-controller
+  namespace: operators
+  labels:
+    app: backup-images-controller
+spec:
+  replicas: 1
+  strategy:
+    rollingUpdate:
+      maxSurge: 0
+      maxUnavailable: 1
+    type: RollingUpdate
+  selector:
+    matchLabels:
+      app: backup-images-controller
+  template:
+    metadata:
+      labels:
+        app: backup-images-controller
+    spec:
+      serviceAccountName: backup-images-controller
+      containers:
+      - name: backup-images-controller
+        image: paucampana/backupoperator:0.0.3
+        imagePullPolicy: Always
+        volumeMounts:
+            - mountPath: /config
+              name: config
+            - mountPath: /secure-config
+              name: secure-config
+      volumes:
+      - name: config
+        configMap:
+          name: operator-config
+      - name: secure-config
+        secret:
+          secretName: operator-config
